@@ -10,7 +10,16 @@ const LoginPage = () => {
     <div>
       <h1>Login</h1>
       <form>
-        <input type="text" placeholder="Username" />
+        <input
+          onChange={(e) => {
+            setAccount({
+              ...account,
+              username: e.target.value,
+            });
+          }}
+          type="text"
+          placeholder="Username"
+        />
         <br />
 
         <input type="text" placeholder="Password" />
