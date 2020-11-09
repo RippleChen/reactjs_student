@@ -13,11 +13,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function App() {
-  const classes = useStyles();
-
+const Demo = () => {
   return (
-    <div className={classes.root}>
+    <>
       <IconButton aria-label="delete">
         <DeleteIcon />
       </IconButton>
@@ -32,6 +30,16 @@ export default function App() {
       </IconButton>
 
       <img src="images/cmdev_logo.png" alt="" />
+    </>
+  );
+};
+
+export default function App() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Demo />
     </div>
   );
 }
