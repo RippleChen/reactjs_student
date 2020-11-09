@@ -1,1 +1,15 @@
 npx create-react-app mydemo1
+
+
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+    
+    "emmet.includeLanguages": {
+    
+        "javascript": "javascriptreact",
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "emmet.showAbbreviationSuggestions": true,
+    "emmet.showExpandedAbbreviation": "always",
