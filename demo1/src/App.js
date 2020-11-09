@@ -10,18 +10,19 @@ export default function App() {
     );
   };
 
-  const CountMe = () => {
+  const CountMe = (props) => {
     return (
       <>
         <button
           onClick={(e) => {
-            setCount3(count3 + 1);
-            console.log(count3);
+            props.setCount(props.count + 1);
           }}
         >
-          Count3
+          {props.btnTitle}
         </button>
-        <span>Count3 = {count3}</span>
+        <span>
+          {props.resultMessage} {props.count}
+        </span>
         <br />
       </>
     );
