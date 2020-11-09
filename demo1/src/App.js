@@ -11,6 +11,7 @@ export default function App() {
   };
 
   var count1 = 0;
+  const [count2, setCount2] = React.useState(0);
 
   return (
     <div>
@@ -22,10 +23,23 @@ export default function App() {
           console.log(count1);
         }}
       >
-        Click me
+        Count1
+      </button>
+      <span>Count1 = {count1}</span>
+
+      <br />
+      <button
+        onClick={(e) => {
+          // alert("1234");
+          // count2++;
+          setCount2(count2 + 1);
+          console.log(count2);
+        }}
+      >
+        Count2
       </button>
 
-      <span>Count1 = {count1}</span>
+      <span>Count2 = {count2}</span>
     </div>
   );
 }
