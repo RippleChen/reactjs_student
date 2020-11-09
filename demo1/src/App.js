@@ -10,12 +10,30 @@ export default function App() {
     );
   };
 
+  const CountMe = () => {
+    return (
+      <>
+        <button
+          onClick={(e) => {
+            setCount3(count3 + 1);
+            console.log(count3);
+          }}
+        >
+          Count3
+        </button>
+        <span>Count3 = {count3}</span>
+        <br />
+      </>
+    );
+  };
+
   var count1 = 0;
   const [count2, setCount2] = React.useState(0);
   const [count3, setCount3] = useState(1);
   return (
     <div>
       <Header title="Lek CodeMobiles" />
+
       <button
         onClick={(e) => {
           // alert("1234");
@@ -26,8 +44,8 @@ export default function App() {
         Count1
       </button>
       <span>Count1 = {count1}</span>
-
       <br />
+
       <button
         onClick={(e) => {
           // alert("1234");
@@ -39,8 +57,8 @@ export default function App() {
         Count2
       </button>
       <span>Count2 = {count2}</span>
-
       <br />
+
       <button
         onClick={(e) => {
           // alert("1234");
@@ -52,6 +70,7 @@ export default function App() {
         Count3
       </button>
       <span>Count3 = {count3}</span>
+      <br />
     </div>
   );
 }
