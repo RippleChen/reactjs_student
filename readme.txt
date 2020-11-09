@@ -1,7 +1,7 @@
 
-NodeJS
-VSCode
-Yarn
+NodeJS - version 14.x
+VSCode - latest version
+Yarn - npm i -g yarn
 
 https://drive.google.com/file/d/1-dTAsbdoExF7Hx5lfcOVyCCv8AASRKEw/view?usp=sharing
 
