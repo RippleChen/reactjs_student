@@ -17,11 +17,15 @@ export default function App() {
       <Header title="Lek CodeMobiles" />
       <button
         onClick={(e) => {
-          alert("1234");
+          // alert("1234");
+          count1++;
+          console.log(count1);
         }}
       >
         Click me
       </button>
+
+      <span>Count1 = {count1}</span>
     </div>
   );
 }
