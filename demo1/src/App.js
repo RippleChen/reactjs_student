@@ -10,21 +10,18 @@ export default function App() {
     );
   };
 
-  var count = 0;
+  var count1 = 0;
+
   return (
     <div>
       <Header title="Lek CodeMobiles" />
       <button
         onClick={(e) => {
-          count = count + 1;
-          console.log(count);
+          alert("1234");
         }}
       >
         Click me
       </button>
-      <div>
-        <span>#spy variable{count}</span>
-      </div>
     </div>
   );
 }
