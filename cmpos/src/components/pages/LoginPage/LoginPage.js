@@ -1,4 +1,17 @@
 import React from "react";
+import { Formik } from "formik";
+
+const showForm = () => {
+  return (
+    <form>
+      <input name="username" id="username" type="text" placeholder="Username" />
+      <br />
+
+      <input name="password" id="password" type="text" placeholder="Password" />
+      <br />
+    </form>
+  );
+};
 
 const LoginPage = () => {
   const [account, setAccount] = React.useState({
@@ -9,29 +22,7 @@ const LoginPage = () => {
   return (
     <div>
       <h1>Login</h1>
-      <form>
-        <input
-          onChange={(e) => {
-            setAccount({
-              ...account,
-              username: e.target.value,
-            });
-          }}
-          type="text"
-          placeholder="Username"
-        />
-        <br />
-
-        <input
-          onChange={(e) => {
-            setAccount({ ...account, password: e.target.value });
-          }}
-          type="text"
-          placeholder="Password"
-        />
-        <br />
-      </form>
-
+      {showForm()}
       <span>{JSON.stringify(account)}</span>
     </div>
   );
