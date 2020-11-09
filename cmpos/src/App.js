@@ -30,6 +30,8 @@ export default function App() {
       <IconButton color="primary" aria-label="add to shopping cart">
         <AddShoppingCartIcon />
       </IconButton>
+
+      <img src="images/cmdev_logo.png" alt="" />
     </div>
   );
 }
