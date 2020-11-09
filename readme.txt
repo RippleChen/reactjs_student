@@ -8,6 +8,7 @@ VSCode Extensions:
   - color highlight
   - prettier code formatter
   - rest client
+  - html to jsx
 Yarn - npm i -g yarn
 Anydesk
 
