@@ -3,7 +3,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import AlarmIcon from "@material-ui/icons/Alarm";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
-export default Demo = () => {
+export default function Demo() {
   return (
     <>
       <IconButton aria-label="delete">
@@ -22,4 +22,4 @@ export default Demo = () => {
       <img src="images/cmdev_logo.png" alt="" />
     </>
   );
-};
+}
