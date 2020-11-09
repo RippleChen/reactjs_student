@@ -1,6 +1,12 @@
 
 NodeJS
 VSCode
+VSCode Extensions:
+  - vscode-icon
+  - es7
+  - path intellisense
+  - color highlight
+  - rest client
 Yarn - npm i -g yarn
 Anydesk
 
