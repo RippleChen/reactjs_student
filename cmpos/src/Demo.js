@@ -3,7 +3,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import AlarmIcon from "@material-ui/icons/Alarm";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
-export default function Demo() {
+export function Demo() {
   return (
     <>
       <IconButton aria-label="delete">
