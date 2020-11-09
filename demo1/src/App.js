@@ -10,18 +10,19 @@ export default function App() {
     );
   };
 
-  const CountMe = (props) => {
+  // Destructuring
+  const CountMe = ({ setCount, count, btnTitle, resultMessage }) => {
     return (
       <>
         <button
           onClick={(e) => {
-            props.setCount(props.count + 1);
+            setCount(count + 1);
           }}
         >
-          {props.btnTitle}
+          {btnTitle}
         </button>
         <span>
-          {props.resultMessage} {props.count}
+          {resultMessage} {count}
         </span>
         <br />
       </>
