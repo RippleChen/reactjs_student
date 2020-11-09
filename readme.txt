@@ -6,6 +6,7 @@ VSCode Extensions:
   - es7
   - path intellisense
   - color highlight
+  - prettier code formatter
   - rest client
 Yarn - npm i -g yarn
 Anydesk
