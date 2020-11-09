@@ -1,29 +1,55 @@
 import React from "react";
 import { Formik } from "formik";
 
-const showForm = () => {
+const showForm = ({ handleChange, values, handleSubmit }) => {
   return (
-    <form>
-      <input name="username" id="username" type="text" placeholder="Username" />
+    <form onSubmit={handleSubmit}>
+      <input
+        onChange={handleChange}
+        value={values.username}
+        name="username"
+        id="username"
+        type="text"
+        placeholder="Username"
+      />
       <br />
 
-      <input name="password" id="password" type="text" placeholder="Password" />
+      <input
+        onChange={handleChange}
+        value={values.password}
+        name="password"
+        id="password"
+        type="text"
+        placeholder="Password"
+      />
       <br />
+
+      <input
+        onChange={handleChange}
+        value={values.age}
+        name="age"
+        id="age"
+        type="number"
+        placeholder="Age"
+      />
+      <br />
+      <button type="submit">Submit</button>
     </form>
   );
 };
 
 const LoginPage = () => {
-  const [account, setAccount] = React.useState({
-    username: "",
-    password: "",
-  });
-
   return (
     <div>
       <h1>Login</h1>
-      {showForm()}
-      <span>{JSON.stringify(account)}</span>
+      <Formik
+        initialValues={{ username: "lek", password: "555" }}
+        onSubmit={(values, setSubmitting) => {
+          alert(JSON.stringify(values));
+        }}
+      >
+        {(props) => showForm(props)}
+      </Formik>
     </div>
   );
 };
