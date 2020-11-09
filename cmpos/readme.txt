@@ -15,6 +15,8 @@ yarn add axios chart.js react-chartjs-2 react-moment react-number-format react-r
 
 # Page Components
 // In Pages
+yarn add create-react-component-folder
+
 npx crcf -f LoginPage
 npx crcf -f RegisterPage
 npx crcf -f ReportPage
