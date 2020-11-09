@@ -4,5 +4,5 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 brew install yarn (mac)
 npm i -g yarn (win)
 
-yarn add @material-ui/icons
+yarn add @material-ui/core
 yarn add @material-ui/icons
