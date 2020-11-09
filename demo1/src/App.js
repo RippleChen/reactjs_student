@@ -1,18 +1,18 @@
 import React from "react";
 
 export default function App() {
-  const Header = () => {
+  const Header = (props) => {
     return (
       <div>
         {/* JSX */}
-        <h1>CodeMobiles</h1>
+        <h1>{props.title}</h1>
       </div>
     );
   };
 
   return (
     <div>
-      <Header />
+      <Header title="Lek CodeMobiles" />
     </div>
   );
 }
