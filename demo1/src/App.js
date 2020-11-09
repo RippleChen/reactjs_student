@@ -71,6 +71,13 @@ export default function App() {
       </button>
       <span>Count3 = {count3}</span>
       <br />
+
+      <CountMe
+        btnTitle="ClickMe"
+        resultMessage="Count3 is : "
+        setCount={setCount3}
+        count={count3}
+      />
     </div>
   );
 }
