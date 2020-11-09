@@ -22,7 +22,13 @@ const LoginPage = () => {
         />
         <br />
 
-        <input type="text" placeholder="Password" />
+        <input
+          onChange={(e) => {
+            setAccount({ ...account, password: e.target.value });
+          }}
+          type="text"
+          placeholder="Password"
+        />
         <br />
       </form>
 
