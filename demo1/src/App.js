@@ -4,6 +4,7 @@ export default function App() {
   const Header = () => {
     return (
       <div>
+        {/* JSX */}
         <h1>CodeMobiles</h1>
       </div>
     );
@@ -11,8 +12,7 @@ export default function App() {
 
   return (
     <div>
-      <Header/>
+      <Header />
     </div>
   );
 }
-
