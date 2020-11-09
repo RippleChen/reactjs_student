@@ -1,7 +1,9 @@
 
-NodeJS - version 14.x
-VSCode - latest version
+NodeJS
+VSCode
 Yarn - npm i -g yarn
+Anydesk
+
 
 https://drive.google.com/file/d/1-dTAsbdoExF7Hx5lfcOVyCCv8AASRKEw/view?usp=sharing
 
