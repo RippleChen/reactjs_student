@@ -21,6 +21,11 @@ export default function App() {
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
+        <Route
+          exact={true}
+          path="/"
+          component={() => <Redirect to="/login" />}
+        />
       </Switch>
     </Router>
   );
