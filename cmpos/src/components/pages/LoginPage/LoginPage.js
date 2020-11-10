@@ -118,6 +118,7 @@ export default (props) => {
           initialValues={{ username: "", password: "" }}
           onSubmit={(values, { setSubmitting }) => {
             // dispatch(loginActions.login(values, props.history));
+            props.history.push("/stock");
             setSubmitting(false);
           }}
         >
