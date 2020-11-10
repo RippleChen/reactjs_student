@@ -42,6 +42,7 @@ const LoginPage = () => {
   return (
     <div>
       <h1>Login</h1>
+      {/* HOC */}
       <Formik
         initialValues={{ username: "lek", password: "555" }}
         onSubmit={(values, setSubmitting) => {
