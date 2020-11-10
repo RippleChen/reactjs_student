@@ -14,7 +14,14 @@ export const setRegisterStateToFailed = (payload) => ({
   payload,
 });
 
+export const register = (account) => {
+  return (dispatch) => {
+    dispatch(setRegisterStateToFetch());
 
-export const register = (account)=>{
-    
-}
+    setTimeout(() => {
+      dispatch(setRegisterStateToSuccess([1, 2, 3, 4]));
+    }, 3000);
+
+    //setRegisterStateToFailed({ error });
+  };
+};
