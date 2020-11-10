@@ -37,3 +37,5 @@ npx yarn add express formidable body-parser fs-extra
 npx yarn add express body-parser fs-extra formidable cors bcryptjs rand-token jsonwebtoken mongoose mongoose-sequence onesignal-node
 
 http://localhost:8081/images/8.jpg
+
+https://github.com/mongodb/homebrew-brew
