@@ -10,7 +10,7 @@ import { Formik } from "formik";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-// import * as registerActions from "./../../../actions/register.action";
+import * as registerActions from "./../../../actions/register.action"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,7 +45,7 @@ const submit = async (account) => {
 
 export default (props) => {
   const classes = useStyles();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const registerReducer = useSelector(state => state.registerReducer)
   const registerReducer = useSelector(({ registerReducer }) => registerReducer);
 
@@ -131,7 +131,9 @@ export default (props) => {
           onSubmit={(values, { setSubmitting }) => {
             // alert(JSON.stringify(values));
             // dispatch(registerActions.register(values, props.history));
-            submit(values);
+
+
+            dispatch(registerActions.register(values))
             setSubmitting(false);
           }}
         >

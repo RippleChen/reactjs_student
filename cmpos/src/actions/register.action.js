@@ -23,7 +23,7 @@ export const register = (account) => {
     dispatch(setRegisterStateToFetch());
 
     setTimeout(() => {
-      dispatch(setRegisterStateToSuccess([1, 2, 3, 4]));
+      dispatch(setRegisterStateToSuccess(account.username));
     }, 3000);
 
     //setRegisterStateToFailed({ error });
