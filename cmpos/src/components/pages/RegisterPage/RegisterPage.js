@@ -71,6 +71,19 @@ export default (props) => {
           id="password"
           autoComplete="current-password"
         />
+
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          onChange={handleChange}
+          value={values.age}
+          name="age"
+          label="Age"
+          type="number"
+          id="age"
+        />
         <Button
           type="submit"
           fullWidth
@@ -102,11 +115,14 @@ export default (props) => {
           Register
         </Typography>
         <Formik
-          initialValues={{ username: "", password: "" }}
+          initialValues={{ username: "", password: "", age: 100 }}
           onSubmit={(values, { setSubmitting }) => {
             alert(JSON.stringify(values));
             // dispatch(registerActions.register(values, props.history));
-            setSubmitting(false);
+
+            setTimeout(() => {
+              setSubmitting(false);
+            }, 5000);
           }}
         >
           {(props) => showForm(props)}
