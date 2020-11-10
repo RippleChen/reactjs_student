@@ -119,10 +119,7 @@ export default (props) => {
           onSubmit={(values, { setSubmitting }) => {
             alert(JSON.stringify(values));
             // dispatch(registerActions.register(values, props.history));
-
-            setTimeout(() => {
-              setSubmitting(false);
-            }, 5000);
+            setSubmitting(false);
           }}
         >
           {(props) => showForm(props)}
