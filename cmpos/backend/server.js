@@ -1,16 +1,14 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-// http://localhost:8001/login?username=admin&password=1234
-app.get("/login", (req, res) => {
-  const { query } = req;
-  res.json({ result: "ok", query });
-});
+app.use(cors());
+app.use(express.static(__dirname + "/uploaded"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use("/api/v2", require("./api"));
 
-app.get("/", (req, res) => {
-  res.end("Home");
-});
-
-app.listen(8001, () => {
-  console.log("server is running.");
+app.listen(8081, () => {
+  console.log("Server is running...");
 });
