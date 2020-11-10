@@ -25,3 +25,7 @@ npx crcf -f StockCreatePage
 npx crcf -f StockEditPage
 npx crcf -f TransactionPage
 npx crcf -f ShopPage
+
+
+
+node server.js
