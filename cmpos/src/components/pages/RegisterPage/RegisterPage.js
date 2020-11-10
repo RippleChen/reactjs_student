@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const submit = (account)=>{
+const submit = async (account)=>{
   const result = await axios.post("http://localhost:8081/api/v2/register", account)
   alert(JSON.stringify(result.data))
 }
@@ -128,8 +128,9 @@ export default (props) => {
         <Formik
           initialValues={{ username: "", password: "", age: 100 }}
           onSubmit={(values, { setSubmitting }) => {
-            alert(JSON.stringify(values));
+            // alert(JSON.stringify(values));
             // dispatch(registerActions.register(values, props.history));
+            submit(values);
             setSubmitting(false);
           }}
         >
