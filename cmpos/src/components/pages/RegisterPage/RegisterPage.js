@@ -7,7 +7,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { Formik } from "formik";
-import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
 import * as registerActions from "./../../../actions/register.action";
@@ -34,14 +33,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
-const submit = async (account) => {
-  const result = await axios.post(
-    "http://localhost:8081/api/v2/register",
-    account
-  );
-  alert(JSON.stringify(result.data));
-};
 
 export default (props) => {
   const classes = useStyles();

@@ -4,6 +4,8 @@ import {
   REGISTER_FAILED,
 } from "../constants";
 
+import axios from "axios";
+
 export const setRegisterStateToFetch = () => ({
   type: REGISTER_FETCHING,
 });
@@ -19,13 +21,16 @@ export const setRegisterStateToFailed = (payload) => ({
 });
 
 export const register = (account) => {
-  return (dispatch) => {
-    dispatch(setRegisterStateToFetch());
-
-    setTimeout(() => {
-      dispatch(setRegisterStateToSuccess(account.username));
-    }, 3000);
-
-    //setRegisterStateToFailed({ error });
+  return async (dispatch) => {
+    try {
+      dispatch(setRegisterStateToFetch());
+      const result = await axios.post(
+        "http://localhost:8081/api/v2/register",
+        account
+      );
+      dispatch(setRegisterStateToSuccess(result.data));
+    } catch (e) {
+      dispatch(setRegisterStateToFailed({ error: JSON.stringify(e) }));
+    }
   };
 };
