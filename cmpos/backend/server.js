@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 
+// http://localhost:8001/login?username=admin&password=1234
 app.get("/login", (req, res) => {
-  res.end("login");
+  const { query } = req;
+  res.json({ result: "ok", query });
 });
 
 app.get("/", (req, res) => {
