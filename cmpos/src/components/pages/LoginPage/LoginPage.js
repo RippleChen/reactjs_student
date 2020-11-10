@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import * as loginActions from "./../../../actions/login.action";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
+import { CardActionArea } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -100,13 +101,15 @@ export default (props) => {
 
   return (
     <Card className={classes.root}>
-      <CardMedia
-        component="img"
-        alt="Contemplative Reptile"
-        height="200"
-        image={`${process.env.PUBLIC_URL}/images/authen_header.jpg`}
-        title="Contemplative Reptile"
-      />
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt="Contemplative Reptile"
+          height="200"
+          image={`${process.env.PUBLIC_URL}/images/authen_header.jpg`}
+          title="Contemplative Reptile"
+        />
+      </CardActionArea>
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
           Login
