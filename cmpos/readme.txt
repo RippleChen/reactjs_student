@@ -30,3 +30,4 @@ npx crcf -f ShopPage
 
 node server.js
 npx nodemon server.js
+npm init
