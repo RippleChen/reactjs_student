@@ -1,14 +1,16 @@
 const initialState = {
-    isFetching: false
+    result: null,
+    isFetching: false,
+    isError: false
 }
 
-export default (state = initialState, { type, payload }) => {
-    switch (type) {
+export default (state = initialState, action) => {
+  switch (action.type) {
 
-    case "FETCHING":
-        return { ...state, isFetching: true, }
+  case typeName:
+    return { ...state };
 
-    default:
-        return state
-    }
-}
+  default:
+    return state
+  }
+};
