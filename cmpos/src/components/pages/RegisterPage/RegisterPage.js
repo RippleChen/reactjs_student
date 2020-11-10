@@ -46,7 +46,8 @@ const submit = async (account) => {
 export default (props) => {
   const classes = useStyles();
   // const dispatch = useDispatch();
-  const registerReducer = useSelector((state) => state.registerReducer);
+  // const registerReducer = useSelector(state => state.registerReducer)
+  const registerReducer = useSelector(({ registerReducer }) => registerReducer);
 
   const showForm = ({
     values,
