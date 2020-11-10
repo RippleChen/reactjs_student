@@ -10,7 +10,7 @@ import { Formik } from "formik";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-import * as registerActions from "./../../../actions/register.action"
+import * as registerActions from "./../../../actions/register.action";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,7 +102,7 @@ export default (props) => {
           variant="contained"
           color="primary"
           className={classes.submit}
-          disabled={isSubmitting}
+          disabled={registerReducer.isFetching}
         >
           Create
         </Button>
@@ -129,12 +129,7 @@ export default (props) => {
         <Formik
           initialValues={{ username: "", password: "", age: 100 }}
           onSubmit={(values, { setSubmitting }) => {
-            // alert(JSON.stringify(values));
-            // dispatch(registerActions.register(values, props.history));
-
-
-            dispatch(registerActions.register(values))
-            setSubmitting(false);
+            dispatch(registerActions.register(values));
           }}
         >
           {(props) => showForm(props)}
