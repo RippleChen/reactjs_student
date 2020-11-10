@@ -11,6 +11,7 @@ import Menu from "./components/layouts/Menu";
 
 import LoginPage from "./components/pages/LoginPage";
 import RegisterPage from "./components/pages/RegisterPage";
+import StockPage from "./components/pages/StockPage";
 
 // ----
 import Container from "@material-ui/core/Container";
@@ -60,6 +61,7 @@ export default function App() {
             <Container className={classes.content} maxWidth={false}>
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
+              <Route path="/stock" component={StockPage} />
               <Route
                 exact={true}
                 path="/"
