@@ -75,18 +75,6 @@ export default (props) => {
           autoComplete="current-password"
         />
 
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          onChange={handleChange}
-          value={values.age}
-          name="age"
-          label="Age"
-          type="number"
-          id="age"
-        />
         <Button
           type="submit"
           fullWidth
@@ -126,7 +114,7 @@ export default (props) => {
           {(props) => showForm(props)}
         </Formik>
 
-        <span>
+        <span style={{ fontSize: 10 }}>
           #Debug:{" "}
           {registerReducer.result && JSON.stringify(registerReducer.result)}
         </span>
