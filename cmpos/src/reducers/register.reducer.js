@@ -1,7 +1,11 @@
-import { REGISTER_FAILED, REGISTER_FETCHING, REGISTER_SUCCESS } from "../constants";
+import {
+  REGISTER_FAILED,
+  REGISTER_FETCHING,
+  REGISTER_SUCCESS,
+} from "../constants";
 
 const initialState = {
-  result: null,
+  result: "lek",
   isFetching: false,
   isError: false,
 };

@@ -1,4 +1,8 @@
-import { REGISTER_FETCHING, REGISTER_SUCCESS } from "../constants";
+import {
+  REGISTER_FETCHING,
+  REGISTER_SUCCESS,
+  REGISTER_FAILED,
+} from "../constants";
 
 export const setRegisterStateToFetch = () => ({
   type: REGISTER_FETCHING,

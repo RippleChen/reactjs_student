@@ -9,7 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import { Formik } from "formik";
 import axios from "axios";
 
-// import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import * as registerActions from "./../../../actions/register.action";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,18 +35,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-const submit = async (account)=>{
-  const result = await axios.post("http://localhost:8081/api/v2/register", account)
-  alert(JSON.stringify(result.data))
-}
-
+const submit = async (account) => {
+  const result = await axios.post(
+    "http://localhost:8081/api/v2/register",
+    account
+  );
+  alert(JSON.stringify(result.data));
+};
 
 export default (props) => {
   const classes = useStyles();
   // const dispatch = useDispatch();
-
-
+  const registerReducer = useSelector((state) => state.registerReducer);
 
   const showForm = ({
     values,
@@ -123,7 +123,7 @@ export default (props) => {
     <Card className={classes.root}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
-          Register
+          Register ({registerReducer.result})
         </Typography>
         <Formik
           initialValues={{ username: "", password: "", age: 100 }}
