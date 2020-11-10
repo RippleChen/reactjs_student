@@ -104,8 +104,7 @@ export default (props) => {
         <Formik
           initialValues={{ username: "", password: "" }}
           onSubmit={(values, { setSubmitting }) => {
-
-            
+            alert(JSON.stringify(values));
             // dispatch(registerActions.register(values, props.history));
             setSubmitting(false);
           }}
