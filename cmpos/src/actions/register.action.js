@@ -1,10 +1,20 @@
+import { REGISTER_FETCHING, REGISTER_SUCCESS } from "../constants";
 
-// SEND TO REDUCER
-export const setStateToFethcing = () => ({
-    type: "FETHCING",
+export const setRegisterStateToFetch = () => ({
+  type: REGISTER_FETCHING,
+});
+
+export const setRegisterStateToSuccess = (payload) => ({
+  type: REGISTER_SUCCESS,
+  payload,
+});
+
+export const setRegisterStateToFailed = (payload) => ({
+  type: REGISTER_FAILED,
+  payload,
+});
+
+
+export const register = (account)=>{
     
-})
-
-export const register = (account) =>{
-    setStateToFethcing()
 }
