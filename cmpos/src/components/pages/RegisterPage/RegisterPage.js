@@ -115,7 +115,7 @@ export default (props) => {
     <Card className={classes.root}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
-          Register ({registerReducer.result})
+          Register
         </Typography>
         <Formik
           initialValues={{ username: "", password: "", age: 100 }}
@@ -125,6 +125,11 @@ export default (props) => {
         >
           {(props) => showForm(props)}
         </Formik>
+
+        <span>
+          #Debug:{" "}
+          {registerReducer.result && JSON.stringify(registerReducer.result)}
+        </span>
       </CardContent>
     </Card>
   );
