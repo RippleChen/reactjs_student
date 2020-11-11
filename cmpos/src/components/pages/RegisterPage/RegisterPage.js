@@ -6,6 +6,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import Alert from "@material-ui/lab/Alert";
 import { Formik } from "formik";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -118,6 +119,8 @@ export default (props) => {
           #Debug:{" "}
           {registerReducer.result && JSON.stringify(registerReducer.result)}
         </span>
+
+        <Alert severity="error">This is an error alert — check it out!</Alert>
       </CardContent>
     </Card>
   );
