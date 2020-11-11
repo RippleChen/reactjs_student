@@ -3,7 +3,7 @@ GET http://localhost:8081/api/v2/product HTTP/1.1
 
 
 ### Get Product (string query) 
-GET http://localhost:8081/api/v2/product?token=kan HTTP/1.1
+GET http://localhost:8081/api/v2/product?token1=t1&token2=t2&token3=t3 HTTP/1.1
 
 
 ### Create 
