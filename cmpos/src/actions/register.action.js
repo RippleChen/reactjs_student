@@ -20,7 +20,7 @@ export const setRegisterStateToFailed = (payload) => ({
   payload,
 });
 
-export const register = (account) => {
+export const register = (account, history) => {
   return async (dispatch) => {
     try {
       dispatch(setRegisterStateToFetch());
@@ -28,6 +28,8 @@ export const register = (account) => {
         "http://localhost:8081/api/v2/register",
         account
       );
+
+      if (result.data.result)
       dispatch(setRegisterStateToSuccess(result.data));
     } catch (e) {
       dispatch(setRegisterStateToFailed({ error: JSON.stringify(e) }));

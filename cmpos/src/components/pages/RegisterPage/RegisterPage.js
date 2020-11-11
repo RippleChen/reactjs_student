@@ -108,7 +108,7 @@ export default (props) => {
         <Formik
           initialValues={{ username: "", password: "", age: 100 }}
           onSubmit={(values, { setSubmitting }) => {
-            dispatch(registerActions.register(values));
+            dispatch(registerActions.register(values, props.history));
           }}
         >
           {(props) => showForm(props)}
