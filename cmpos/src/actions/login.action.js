@@ -1,4 +1,3 @@
-
 import {
   LOGIN_FETCHING,
   LOGIN_SUCCESS,
@@ -24,5 +23,15 @@ export const setLoginStatetoFailed = (payload) => ({
 });
 
 export const login = (value, history) => {
-  return async (dispatch) => {};
+  return async (dispatch) => {
+    dispatch(setLoginStateToFetch());
+
+    const result = await httpClient.post(server.LOGIN_URL, value);
+    if (result.data.result == "ok") {
+      dispatch(setLoginStateToSuccess("Login successfully"));
+      history.push("/stock");
+    } else {
+      dispatch(setLoginStatetoFailed("Login failed"));
+    }
+  };
 };
