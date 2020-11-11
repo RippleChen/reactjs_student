@@ -46,4 +46,24 @@ router.post("/product", async (req, res) => {
   }
 });
 
+
+// Update Product
+router.put("/product", (req, res) => {
+  try {
+    var form = new formidable.IncomingForm();
+    form.parse(req, async (err, fields, files) => {
+      let doc = await Products.findOneAndUpdate(
+        { product_id: fields.product_id },
+        fields
+      );
+      await uploadImage(files, fields);
+
+      res.json({ result: "ok", message: JSON.stringify(doc) });
+    });
+  } catch (err) {
+    res.json({ result: "nok", message: JSON.stringify(err) });
+  }
+});
+
+
 module.exports = router;
