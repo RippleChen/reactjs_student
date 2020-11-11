@@ -32,8 +32,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default (props) => {
   const classes = useStyles();
-  // const dispatch = useDispatch();
-  // const loginReducer = useSelector(({ loginReducer }) => loginReducer);
+  const dispatch = useDispatch();
+  const loginReducer = useSelector(({ loginReducer }) => loginReducer);
+  
   // useEffect(() => {
   //   loginActions.isLoggedIn() && props.history.push("/stock");
   // }, []);
