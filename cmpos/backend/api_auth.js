@@ -6,8 +6,12 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  const doc = await Users.create(req.body);
-  res.json(doc);
+  try {
+    const doc = await Users.create(req.body);
+    res.json(doc);
+  } catch (e) {
+    res.json(e);
+  }
 });
 
 module.exports = router;
