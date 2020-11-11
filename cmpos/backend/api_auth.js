@@ -16,7 +16,7 @@ router.post("/login", (req, res) => {
             username: doc.username,
           };
 
-          const token = jwt.sign(payload, "1000000");
+          const token = jwt.sign(payload, "1000000000");
 
           // reply ok
           res.json({
