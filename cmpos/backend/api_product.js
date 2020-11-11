@@ -9,7 +9,7 @@ const path = require("path");
 const fs = require("fs-extra");
 
 router.get("/product", jwt.verify, async (req, res) => {
-  const products = await Products.find({});
+  const products = await Products.find({}).sort({ created: -1 });
   res.json(products);
 });
 
