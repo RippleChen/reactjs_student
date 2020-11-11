@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Users = require("./models/user_schema");
 var bcrypt = require("bcryptjs");
+const jwt = require("./jwt");
+
 
 router.post("/login", (req, res) => {
   Users.findOne({ username: req.body.username })
@@ -9,6 +11,15 @@ router.post("/login", (req, res) => {
       if (doc) {
         isValidPassword = await bcrypt.compare(req.body.password, doc.password);
         if (isValidPassword) {
+
+          const payload = {
+            id: doc._id,
+            level: doc.level,
+            username: doc.username,
+          };
+
+          
+          
           // reply ok
           res.json({
             result: "ok",
