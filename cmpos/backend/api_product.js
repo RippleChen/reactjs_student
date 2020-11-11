@@ -21,7 +21,7 @@ uploadImage = async (files, doc) => {
     var newpath =
       path.resolve(__dirname + "/uploaded/images/") + "/" + doc.image;
 
-    if (fs.exists(newpath)) {
+    if (fs.existsSync(newpath)) {
       await fs.remove(newpath);
     }
     await fs.move(files.image.path, newpath);
@@ -45,4 +45,5 @@ router.post("/product", async (req, res) => {
     res.json({ result: "nok", message: JSON.stringify(err) });
   }
 });
+
 module.exports = router;
