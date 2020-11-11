@@ -13,16 +13,36 @@ router.get("/product", jwt.verify, async (req, res) => {
   res.json(products);
 });
 
+// Upload Image
+uploadImage = async (files, doc) => {
+  if (files.image != null) {
+    var fileExtention = files.image.name.split(".")[1];
+    doc.image = `${doc.product_id}.${fileExtention}`;
+    var newpath =
+      path.resolve(__dirname + "/uploaded/images/") + "/" + doc.image;
+
+    if (fs.exists(newpath)) {
+      await fs.remove(newpath);
+    }
+    await fs.move(files.image.path, newpath);
+
+    // Update database
+    await Products.findOneAndUpdate({ product_id: doc.product_id }, doc);
+  }
+};
+
+
 // Add Product
 router.post("/product", async (req, res) => {
   try {
-    const form = new formidable.IncomingForm();
-    form.parse(req, (error, fields, files) => {
-      res.json({ result: "ok", error, fields, files });
+    var form = new formidable.IncomingForm();
+    form.parse(req, async (err, fields, files) => {
+      let doc = await Products.create(fields); // insert
+      await uploadImage(files, doc); // save image
+      res.json({ result: "ok", message: JSON.stringify(doc) }); // reply result
     });
   } catch (err) {
     res.json({ result: "nok", message: JSON.stringify(err) });
   }
 });
-
 module.exports = router;
