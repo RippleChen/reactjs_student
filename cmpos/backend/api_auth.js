@@ -10,11 +10,23 @@ router.get("/login", (req, res) => {
       isValidPassword = await bcrypt.compare(req.body.password, doc.password)
       if (isValidPassword){
         // reply ok
+        res.json({
+          result: "ok",                    
+          message: "Login successfully",
+        });
       }else{
         // reply nok - invalid password
+        res.json({
+          result: "nok",                    
+          message: "Invalid password",
+        });
       }
     }else{
       // reply nok - invalid username
+      res.json({
+        result: "nok",                    
+        message: "Invalid username",
+      });
     }
   }).catch(e=>{
 
