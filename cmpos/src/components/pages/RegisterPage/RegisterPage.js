@@ -115,12 +115,9 @@ export default (props) => {
           {(props) => showForm(props)}
         </Formik>
 
-        <span style={{ fontSize: 10 }}>
-          #Debug:{" "}
-          {registerReducer.result && JSON.stringify(registerReducer.result)}
-        </span>
-
-        <Alert severity="error">This is an error alert — check it out!</Alert>
+        {registerReducer.isError && (
+          <Alert severity="error">{registerReducer.result}</Alert>
+        )}
       </CardContent>
     </Card>
   );
