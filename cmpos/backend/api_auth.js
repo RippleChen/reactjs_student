@@ -18,11 +18,12 @@ router.post("/login", (req, res) => {
             username: doc.username,
           };
 
-          
-          
+          const token = jwt.sign(payload, "1000000")
+
           // reply ok
           res.json({
             result: "ok",
+            token,
             message: "Login successfully",
           });
         } else {
