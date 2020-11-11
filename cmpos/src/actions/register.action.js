@@ -29,10 +29,13 @@ export const register = (account, history) => {
         account
       );
 
-      if (result.data.result)
-      dispatch(setRegisterStateToSuccess(result.data));
+      if (result.data.result == "ok") {
+        dispatch(setRegisterStateToSuccess(result.data.message));
+      } else {
+        dispatch(setRegisterStateToFailed(result.data.message));
+      }
     } catch (e) {
-      dispatch(setRegisterStateToFailed({ error: JSON.stringify(e) }));
+      dispatch(setRegisterStateToFailed(e));
     }
   };
 };
