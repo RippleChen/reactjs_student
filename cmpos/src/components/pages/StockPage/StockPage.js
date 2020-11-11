@@ -1,7 +1,17 @@
-import React from 'react';
+import React from "react";
 
 const StockPage = () => {
-  return <div>StockPage</div>;
+  const courses = ["Golang", "Angular", "ReactJS", "VueJS"];
+
+  return (
+    <div>
+      <ul>
+        {courses.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default StockPage;
