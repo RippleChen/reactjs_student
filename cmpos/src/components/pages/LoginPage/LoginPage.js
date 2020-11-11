@@ -11,7 +11,7 @@ import { Link as RouterLink } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { Formik } from "formik";
 import { useSelector, useDispatch } from "react-redux";
-// import * as loginActions from "./../../../actions/login.action";
+import * as loginActions from "./../../../actions/login.action";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
 import { CardActionArea } from "@material-ui/core";
@@ -34,7 +34,7 @@ export default (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const loginReducer = useSelector(({ loginReducer }) => loginReducer);
-  
+
   // useEffect(() => {
   //   loginActions.isLoggedIn() && props.history.push("/stock");
   // }, []);
@@ -74,11 +74,11 @@ export default (props) => {
           autoComplete="current-password"
         />
 
-        {/* {loginReducer.isError && (
+        {loginReducer.isError && (
           <Alert severity="error" style={{ marginBottom: 8 }}>
             Invalid account!
           </Alert>
-        )} */}
+        )}
 
         <Button
           type="submit"
@@ -118,9 +118,7 @@ export default (props) => {
         <Formik
           initialValues={{ username: "", password: "" }}
           onSubmit={(values, { setSubmitting }) => {
-            // dispatch(loginActions.login(values, props.history));
-            props.history.push("/stock");
-            setSubmitting(false);
+            dispatch(loginActions.login(values, props.history));
           }}
         >
           {(props) => showForm(props)}
