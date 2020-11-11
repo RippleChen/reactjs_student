@@ -31,13 +31,13 @@ export const register = (account, history) => {
 
       debugger;
       if (result.data.result == "ok") {
-        dispatch(setRegisterStateToSuccess(result.data.message));
+        dispatch(setRegisterStateToSuccess("Register successfully"));
         history.push("/login");
       } else {
-        dispatch(setRegisterStateToFailed(result.data.message));
+        dispatch(setRegisterStateToFailed("Invalid username or password"));
       }
     } catch (e) {
-      dispatch(setRegisterStateToFailed(e));
+      dispatch(setRegisterStateToFailed("Internal error"));
     }
   };
 };

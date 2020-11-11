@@ -116,9 +116,7 @@ export default (props) => {
         </Formik>
 
         {registerReducer.isError && (
-          <Alert severity="error">
-            {JSON.stringify(registerReducer.result)}
-          </Alert>
+          <Alert severity="error">{registerReducer.result}</Alert>
         )}
       </CardContent>
     </Card>
