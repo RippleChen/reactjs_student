@@ -4,21 +4,19 @@ const Users = require("./models/user_schema");
 var bcrypt = require("bcryptjs");
 const jwt = require("./jwt");
 
-
 router.post("/login", (req, res) => {
   Users.findOne({ username: req.body.username })
     .then(async (doc) => {
       if (doc) {
         isValidPassword = await bcrypt.compare(req.body.password, doc.password);
         if (isValidPassword) {
-
           const payload = {
             id: doc._id,
             level: doc.level,
             username: doc.username,
           };
 
-          const token = jwt.sign(payload, "1000000")
+          const token = jwt.sign(payload, "1000000");
 
           // reply ok
           res.json({
@@ -41,7 +39,13 @@ router.post("/login", (req, res) => {
         });
       }
     })
-    .catch((e) => {});
+    .catch((e) => {
+      // reply nok - invalid username
+      res.json({
+        result: "nok",
+        message: "Internal error",
+      });
+    });
 });
 
 router.post("/register", async (req, res) => {
