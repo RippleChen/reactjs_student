@@ -65,7 +65,7 @@ export default function App() {
             <Container className={classes.content} maxWidth={false}>
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
-              <Route path="/stock" component={StockPage} />
+              <Route path="/stock" exact={true} component={StockPage} />
               <Route path="/stock/create" component={StockCreatePage} />
               <Route
                 exact={true}
