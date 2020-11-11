@@ -85,12 +85,12 @@ export default (props) => {
           fullWidth
           variant="contained"
           color="primary"
-          disabled={isSubmitting}
+          disabled={loginReducer.isFetching}
           className={classes.submit}
         >
           Sign In
         </Button>
-        {isSubmitting && <CircularProgress style={{ marginTop: 10 }} />}
+        {loginReducer.isFetching && <CircularProgress style={{ marginTop: 10 }} />}
         <Grid container justify="flex-end">
           <Link component={RouterLink} to="/register" variant="body2">
             Don't have an account? Register
