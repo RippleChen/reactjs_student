@@ -1,4 +1,13 @@
-import { LOGIN_FAILED, LOGIN_FETCHING, LOGIN_SUCCESS } from "../constants";
+
+import {
+  LOGIN_FETCHING,
+  LOGIN_SUCCESS,
+  LOGIN_FAILED,
+  LOGOUT,
+  server,
+} from "../constants";
+import { httpClient } from "./../utils/HttpClient";
+import jwt from "jsonwebtoken";
 
 export const setLoginStateToFetch = () => ({
   type: LOGIN_FETCHING,
@@ -14,8 +23,6 @@ export const setLoginStatetoFailed = (payload) => ({
   payload,
 });
 
-export const login = (value, history)=>{
-    return async dispatch=>{
-        
-    }
-}
+export const login = (value, history) => {
+  return async (dispatch) => {};
+};
