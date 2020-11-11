@@ -31,7 +31,6 @@ uploadImage = async (files, doc) => {
   }
 };
 
-
 // Add Product
 router.post("/product", async (req, res) => {
   try {
@@ -45,7 +44,6 @@ router.post("/product", async (req, res) => {
     res.json({ result: "nok", message: JSON.stringify(err) });
   }
 });
-
 
 // Update Product
 router.put("/product", (req, res) => {
@@ -65,8 +63,6 @@ router.put("/product", (req, res) => {
   }
 });
 
-
-
 // Get single
 router.get("/product/id/:id", async (req, res) => {
   let doc = await Products.findOne({ product_id: req.params.id });
@@ -82,12 +78,20 @@ router.get("/product/name/:keyword", async (req, res) => {
 });
 
 
+const deleteImage = (doc)=>{
+  var newpath =
+      path.resolve(__dirname + "/uploaded/images/") + "/" + doc.image;
+
+    if (fs.existsSync(newpath)) {
+      await fs.remove(newpath);
+    }
+}
+
 // Delete Product
 router.delete("/product/id/:id", async (req, res) => {
   let doc = await Products.findOneAndDelete({ product_id: req.params.id });
+  deleteImage(doc)
   res.json({ result: "ok", message: JSON.stringify(doc) });
 });
-
-
 
 module.exports = router;

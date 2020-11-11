@@ -12,7 +12,11 @@ GET http://localhost:8081/api/v2/product?keyword=Ar HTTP/1.1
 
 
 ### Get Product by ID 
-GET http://localhost:8081/api/v2/product/40 HTTP/1.1
+GET http://localhost:8081/api/v2/product/id/44 HTTP/1.1
+
+
+### Delete Product by ID 
+DELETE  http://localhost:8081/api/v2/product/id/44 HTTP/1.1
 
 
 
