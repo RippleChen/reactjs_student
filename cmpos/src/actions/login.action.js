@@ -28,6 +28,11 @@ export const login = (value, history) => {
 
     const result = await httpClient.post(server.LOGIN_URL, value);
     if (result.data.result == "ok") {
+      // backup token
+      const { token, refreshToken } = result.data;
+      localStorage.setItem(server.TOKEN_KEY, token);
+      localStorage.setItem(server.REFRESH_TOKEN_KEY, refreshToken);
+
       dispatch(setLoginStateToSuccess("Login successfully"));
       history.push("/stock");
     } else {
