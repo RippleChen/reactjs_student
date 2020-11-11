@@ -3,7 +3,7 @@ const router = express.Router();
 const Users = require("./models/user_schema");
 var bcrypt = require("bcryptjs");
 
-router.get("/login", (req, res) => {
+router.post("/login", (req, res) => {
   Users.findOne({ username: req.body.username })
     .then(async (doc) => {
       if (doc) {
