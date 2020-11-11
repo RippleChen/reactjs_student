@@ -1,5 +1,13 @@
 import { combineReducers } from "redux";
-import registerReducer from "./register.reducer";
 import loginReducer from "./login.reducer";
-
-export default combineReducers({ registerReducer, loginReducer });
+import registerReducer from "./register.reducer";
+import stockReducer from "./stock.reducer";
+// import shopReducer from './shop.reducer';
+// import transactionReducer from './transaction.reducer';
+export default combineReducers({
+  loginReducer,
+  registerReducer,
+  stockReducer,
+  // shopReducer,
+  // transactionReducer
+});
