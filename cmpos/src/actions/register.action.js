@@ -29,6 +29,7 @@ export const register = (account, history) => {
         account
       );
 
+      debugger;
       if (result.data.result == "ok") {
         dispatch(setRegisterStateToSuccess(result.data.message));
         history.push("/login");
