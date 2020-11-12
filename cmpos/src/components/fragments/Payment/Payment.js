@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { TransactionRequest } from "./../../../models/transaction";
+import { TransactionRequest } from "./../../../models/transaction";
 import * as shopActions from "./../../../actions/shop.action";
 import { makeStyles } from "@material-ui/core/styles";
 import { Formik, Form, Field } from "formik";
@@ -57,16 +57,16 @@ export default (props) => {
   };
 
   const onClickSubmit = (values) => {
-    // let trans = new TransactionRequest();
-    // trans.total = shopReducer.mTotalPrice;
-    // trans.paid = values.given;
-    // trans.change = values.change;
-    // trans.payment_type = "cash";
-    // trans.payment_detail = "full";
-    // trans.seller_id = "sr0001";
-    // trans.buyer_id = "by0000";
-    // trans.order_list = props.order;
-    // dispatch(shopActions.submitPayment(trans));
+    let trans = new TransactionRequest();
+    trans.total = shopReducer.mTotalPrice;
+    trans.paid = values.given;
+    trans.change = values.change;
+    trans.payment_type = "cash";
+    trans.payment_detail = "full";
+    trans.seller_id = "sr0001";
+    trans.buyer_id = "by0000";
+    trans.order_list = props.order;
+    dispatch(shopActions.submitPayment(trans));
   };
 
   const showForm = ({ values, setFieldValue }) => {
