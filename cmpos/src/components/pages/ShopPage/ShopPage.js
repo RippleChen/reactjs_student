@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import useStyles from "./styles";
+import useStyles from "./Styles";
 import Payment from "./../../fragments/Payment/Payment";
 import * as stockActions from "./../../../actions/stock.action";
 import * as shopActions from "./../../../actions/shop.action";
