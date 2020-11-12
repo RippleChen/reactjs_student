@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import MaterialTable from "material-table";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as transactonActions from "./../../../actions/transaction.action";
 
 const TransactionPage = () => {
   const dispatch = useDispatch();
+  const transactionReducer = useSelector((state) => state.transactionReducer);
+
   useEffect(() => {
     dispatch(transactonActions.getTransactions());
   }, []);
@@ -16,18 +18,10 @@ const TransactionPage = () => {
     <div style={{ marginTop: 100 }}>
       <MaterialTable
         columns={[
-          { title: "Adı", field: "name" },
-          { title: "Soyadı", field: "surname" },
-          { title: "Doğum Yılı", field: "birthYear", type: "numeric" },
-          {
-            title: "Doğum Yeri",
-            field: "birthCity",
-            lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
-          },
+          { title: "Id", field: "transaction_id" },
+          { title: "Paid", field: "paid" },
         ]}
-        data={[
-          { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-        ]}
+        data={transactionReducer.result ? transactionReducer.result : []}
         title="Demo Title"
       />
     </div>
