@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MaterialTable from "material-table";
+import { useDispatch } from "react-redux";
+import * as transactonActions from "./../../../actions/transaction.action";
 
 const TransactionPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(transactonActions.getTransactions());
+  }, []);
+
   return (
     <div style={{ marginTop: 100 }}>
       <MaterialTable
