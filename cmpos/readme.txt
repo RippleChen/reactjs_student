@@ -47,3 +47,7 @@ useEffect
 useState
 useDispatch
 useSelector
+
+
+npx crcf -f Payment
+npx crcf -f StockCard
