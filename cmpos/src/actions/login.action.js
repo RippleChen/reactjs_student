@@ -40,3 +40,5 @@ export const login = (value, history) => {
     }
   };
 };
+
+export const logout = (history) => {};
