@@ -26,7 +26,8 @@ const StockCard = (props) => {
             minWidth: 70,
           }}
         >
-          <span>yyyy</span>
+          <props.icon fontSize="large" />
+          {/* {React.createElement(props.icon, { fontSize: "large" })} */}
         </Grid>
       </Grid>
     </Card>
