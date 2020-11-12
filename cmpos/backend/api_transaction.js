@@ -25,6 +25,9 @@ router.get("/t", async (req, res) => {
         as: "staff",
       },
     },
+    {
+      $unwind: "$staff",
+    },
   ]);
   res.json(result);
 });
