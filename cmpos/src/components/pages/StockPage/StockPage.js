@@ -14,7 +14,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { Typography, Grid } from "@material-ui/core";
-// import StockCard from "./../../fragments/StockCard/StockCard";
+import StockCard from "./../../fragments/StockCard/StockCard";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import NewReleasesIcon from "@material-ui/icons/NewReleases";
 import AssignmentReturnIcon from "@material-ui/icons/AssignmentReturn";
@@ -181,43 +181,45 @@ export default (props) => {
     <div className={classes.root}>
       {/* Summary Icons */}
 
-      {/* <Grid container style={{ marginBottom: 16 }} spacing={7}>
-        <Grid item lg={3} md={6}>
-          <StockCard
-            icon={AddShoppingCartIcon}
-            title="TOTAL"
-            subtitle="112 THB"
-            color="#00a65a"
-          />
-        </Grid>
+      {
+        <Grid container style={{ marginBottom: 16 }} spacing={7}>
+          <Grid item lg={3} md={6}>
+            <StockCard
+              icon={AddShoppingCartIcon}
+              title="TOTAL"
+              subtitle="112 THB"
+              color="#00a65a"
+            />
+          </Grid>
 
-        <Grid item lg={3} md={6}>
-          <StockCard
-            icon={NewReleasesIcon}
-            title="EMPTY"
-            subtitle="9 PCS."
-            color="#f39c12"
-          />
-        </Grid>
+          <Grid item lg={3} md={6}>
+            <StockCard
+              icon={NewReleasesIcon}
+              title="EMPTY"
+              subtitle="9 PCS."
+              color="#f39c12"
+            />
+          </Grid>
 
-        <Grid item lg={3} md={6}>
-          <StockCard
-            icon={AssignmentReturnIcon}
-            title="RETURN"
-            subtitle="1 PCS."
-            color="#dd4b39"
-          />
-        </Grid>
+          <Grid item lg={3} md={6}>
+            <StockCard
+              icon={AssignmentReturnIcon}
+              title="RETURN"
+              subtitle="1 PCS."
+              color="#dd4b39"
+            />
+          </Grid>
 
-        <Grid item lg={3} md={6}>
-          <StockCard
-            icon={StarIcon}
-            title="DISCOUNT"
-            subtitle="5 PCS."
-            color="#00c0ef"
-          />
+          <Grid item lg={3} md={6}>
+            <StockCard
+              icon={StarIcon}
+              title="DISCOUNT"
+              subtitle="5 PCS."
+              color="#00c0ef"
+            />
+          </Grid>
         </Grid>
-      </Grid> */}
+      }
 
       <MaterialTable
         id="root_stock"
