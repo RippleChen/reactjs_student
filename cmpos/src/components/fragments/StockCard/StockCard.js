@@ -6,8 +6,12 @@ const StockCard = () => {
   return (
     <Card>
       <Grid container style={{ minHeight: 70 }}>
-        <Grid item>
-          <span>2134</span>
+        <Grid item style={{ backgroundColor: "red", flexGrow: 1, padding: 24 }}>
+          <span>xxxx</span>
+        </Grid>
+
+        <Grid item style={{ backgroundColor: "yellow" }}>
+          <span>yyyy</span>
         </Grid>
       </Grid>
     </Card>
