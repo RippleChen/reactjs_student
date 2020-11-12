@@ -1,10 +1,11 @@
-import { SHOP_FETCHING } from "../constants";
+import { SHOP_UPDATE_ORDER, SHOP_UPDATE_PAYMENT } from "../constants";
 
 const initialState = {
+  mOrderLines: [],
+  mTotalPrice: 0,
   mTaxAmt: 0,
   mIsPaymentMade: false,
-  mTotalPrice: 0,
-  mOrderLines: [],
+  mGiven: 0
 };
 
 export default (state = initialState, { type, payload }) => {
