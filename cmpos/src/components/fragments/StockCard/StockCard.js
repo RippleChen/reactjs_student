@@ -2,7 +2,7 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import { Typography, Grid } from "@material-ui/core";
 
-const StockCard = () => {
+const StockCard = (props) => {
   return (
     <Card>
       <Grid container style={{ minHeight: 70 }}>
@@ -15,7 +15,17 @@ const StockCard = () => {
           </Typography>
         </Grid>
 
-        <Grid item style={{ backgroundColor: "yellow" }}>
+        <Grid
+          item
+          style={{
+            backgroundColor: props.color,
+            display: "flex",
+            flexDirection: "column",
+            width: 100,
+            justifyContent: "center",
+            alignItems: "flex-end",
+          }}
+        >
           <span>yyyy</span>
         </Grid>
       </Grid>
