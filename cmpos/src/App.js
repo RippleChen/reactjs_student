@@ -108,8 +108,12 @@ export default function App() {
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
               <SecuredRoute path="/stock" exact={true} component={StockPage} />
-              <Route path="/stock/create" component={StockCreatePage} />
-              <Route path="/stock/edit/:id" component={StockEditPage} />
+              <SecuredRoute path="/stock/create" component={StockCreatePage} />
+              <SecuredRoute path="/stock/edit/:id" component={StockEditPage} />
+              <SecuredRoute path="/shop" component={ShopPage} />
+              <SecuredRoute path="/report" component={ReportPage} />
+              <SecuredRoute path="/transaction" component={TransactionPage} />
+              
               <Route
                 exact={true}
                 path="/"
