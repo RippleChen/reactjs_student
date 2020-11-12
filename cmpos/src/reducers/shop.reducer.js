@@ -17,6 +17,12 @@ export default (state = initialState, { type, payload }) => {
         mTotalPrice: payload.totalPrice,
         mTaxAmt: payload.taxAmt,
       };
+    case SHOP_UPDATE_PAYMENT:
+      return {
+        ...state,
+        mIsPaymentMade: payload.isPaymentMade,
+        mGiven: payload.given,
+      };
 
     default:
       return state;
