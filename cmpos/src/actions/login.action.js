@@ -22,6 +22,10 @@ export const setLoginStatetoFailed = (payload) => ({
   payload,
 });
 
+export const setLoginStateToLogout = () => ({
+  type: LOGOUT,
+});
+
 export const login = (value, history) => {
   return async (dispatch) => {
     dispatch(setLoginStateToFetch());
@@ -41,4 +45,11 @@ export const login = (value, history) => {
   };
 };
 
-export const logout = (history) => {};
+export const logout = (history) => {
+  return (dispatch) => {
+    localStorage.removeItem(server.TOKEN_KEY);
+    localStorage.removeItem(server.REFRESH_TOKEN_KEY);
+    dispatch(setLoginStateToLogout());
+    history.push("/login");
+  };
+};
