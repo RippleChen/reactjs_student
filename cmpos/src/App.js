@@ -53,7 +53,7 @@ const theme = createMuiTheme({
 
 export default function App() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   useSelector(({ loginReducer }) => loginReducer); // just mention in order to force refresh when login/logout
 
@@ -67,8 +67,8 @@ export default function App() {
 
   return (
     <Router>
-      <Header handleDrawerOpen={} />
-      <Menu />
+      <Header handleDrawerOpen={handleDrawerOpen} />
+      <Menu handleDrawerClose={handleDrawerClose} open={open} />
 
       <Switch>
         <ThemeProvider theme={theme}>
