@@ -110,7 +110,8 @@ export default function App() {
             )}
             {/* Content */}
             <Container className={classes.content} maxWidth={false}>
-              <Route path="/login" component={LoginPage} />
+              {/* <Route path="/login" component={LoginPage} /> */}
+              <LoginRoute path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
               <SecuredRoute path="/stock" exact={true} component={StockPage} />
               <SecuredRoute path="/stock/create" component={StockCreatePage} />
