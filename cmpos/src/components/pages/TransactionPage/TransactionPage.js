@@ -9,6 +9,9 @@ const TransactionPage = () => {
     dispatch(transactonActions.getTransactions());
   }, []);
 
+  // transaction_id
+  // paid
+
   return (
     <div style={{ marginTop: 100 }}>
       <MaterialTable
