@@ -6,7 +6,7 @@ const StockCard = (props) => {
   return (
     <Card>
       <Grid container style={{ minHeight: 70 }}>
-        <Grid item style={{ backgroundColor: "red", flexGrow: 1, padding: 24 }}>
+        <Grid item style={{ flexGrow: 1, padding: 24 }}>
           <Typography variant="h4" color="textPrimary">
             {props.title}
           </Typography>

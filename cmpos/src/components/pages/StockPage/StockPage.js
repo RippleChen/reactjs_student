@@ -182,7 +182,7 @@ export default (props) => {
       {/* Summary Icons */}
 
       {
-        <Grid container style={{ marginBottom: 16 }} spacing={7}>
+        <Grid container style={{ marginBottom: 16 }} spacing={5}>
           <Grid item lg={3} md={6}>
             <StockCard
               icon={AddShoppingCartIcon}
