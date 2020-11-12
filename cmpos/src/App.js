@@ -67,12 +67,13 @@ export default function App() {
 
   return (
     <Router>
-      <Header handleDrawerOpen={handleDrawerOpen} open={open} />
-      <Menu handleDrawerClose={handleDrawerClose} open={open} />
-
       <Switch>
         <ThemeProvider theme={theme}>
           <div className={classes.root}>
+            <CssBaseline />
+            <Header handleDrawerOpen={handleDrawerOpen} open={open} />
+            <Menu handleDrawerClose={handleDrawerClose} open={open} />
+
             <Container className={classes.content} maxWidth={false}>
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
