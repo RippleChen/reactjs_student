@@ -11,7 +11,12 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case SHOP_UPDATE_ORDER:
-      return { ...state, ...payload };
+      return {
+        ...state,
+        mOrderLines: payload.orderLines,
+        mTotalPrice: payload.totalPrice,
+        mTaxAmt: payload.taxAmt,
+      };
 
     default:
       return state;
