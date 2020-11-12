@@ -65,6 +65,36 @@ export default function App() {
     setOpen(false);
   };
 
+
+  // Protected Route
+  const SecuredRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props =>
+        // ternary condition
+        loginActions.isLoggedIn() ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )
+      }
+    />
+  );
+
+  const LoginRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props =>
+        // ternary condition
+        loginActions.isLoggedIn() ? (
+          <Redirect to="/stock" />
+        ) : (
+          <LoginPage {...props} />
+        )
+      }
+    />
+  );
+
   return (
     <Router>
       <Switch>
