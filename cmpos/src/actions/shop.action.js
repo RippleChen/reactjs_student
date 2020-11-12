@@ -39,6 +39,46 @@ export const addOrder = (item) => {
   };
 };
 
-export const removeOrder = () => {};
+export const removeOrder = (product) => {
+  return (dispatch, getState) => {
+    let orderLines = getState().shopReducer.mOrderLines;
+    var foundIndex = orderLines.indexOf(product);
 
-export const togglePaymentState = () => {};
+    orderLines.map((item) => {
+      if (item.product_id === product.product_id) {
+        item.qty = 1;
+      }
+    });
+    orderLines.splice(foundIndex, 1);
+
+    doUpdateOrder(dispatch, orderLines);
+  };
+};
+
+export const submitPayment = (data) => {
+  return (dispatch, getState) => {
+    httpClient.post(server.TRANSACTION_URL, data).then(() => {
+      // Clear payment
+      getState().shopReducer.mOrderLines = [];
+      dispatch({
+        type: SHOP_UPDATE_PAYMENT,
+        payload: {
+          isPaymentMade: false,
+          given: 0,
+        },
+      });
+    });
+  };
+};
+
+export const togglePaymentState = () => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: SHOP_UPDATE_PAYMENT,
+      payload: {
+        isPaymentMade: !getState().shopReducer.mIsPaymentMade,
+        given: !getState().shopReducer.mGiven,
+      },
+    });
+  };
+};
