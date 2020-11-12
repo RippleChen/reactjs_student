@@ -5,12 +5,12 @@ const initialState = {
   mTotalPrice: 0,
   mTaxAmt: 0,
   mIsPaymentMade: false,
-  mGiven: 0
+  mGiven: 0,
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case SHOP_FETCHING:
+    case SHOP_UPDATE_ORDER:
       return { ...state, ...payload };
 
     default:
