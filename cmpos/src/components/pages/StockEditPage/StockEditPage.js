@@ -16,6 +16,7 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import { Label } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,6 +49,16 @@ export default (props) => {
             <Typography gutterBottom variant="h3">
               Edit Product
             </Typography>
+
+            <Field
+              className={classes.field}
+              fullWidth
+              component={() => <h3>Product ID# {values.product_id}</h3>}
+              name="product_id"
+              type="text"
+              label="Id"
+            />
+            <br />
 
             <Field
               className={classes.field}
