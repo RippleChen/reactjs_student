@@ -19,11 +19,11 @@ const StockCard = (props) => {
           item
           style={{
             backgroundColor: props.color,
+            color: "white",
             display: "flex",
-            flexDirection: "column",
-            width: 100,
+            alignItems: "center",
             justifyContent: "center",
-            alignItems: "flex-end",
+            minWidth: 70,
           }}
         >
           <span>yyyy</span>
