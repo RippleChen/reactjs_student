@@ -65,12 +65,11 @@ export default function App() {
     setOpen(false);
   };
 
-
   // Protected Route
   const SecuredRoute = ({ component: Component, ...rest }) => (
     <Route
       {...rest}
-      render={props =>
+      render={(props) =>
         // ternary condition
         loginActions.isLoggedIn() ? (
           <Component {...props} />
@@ -84,7 +83,7 @@ export default function App() {
   const LoginRoute = ({ component: Component, ...rest }) => (
     <Route
       {...rest}
-      render={props =>
+      render={(props) =>
         // ternary condition
         loginActions.isLoggedIn() ? (
           <Redirect to="/stock" />
@@ -101,9 +100,15 @@ export default function App() {
         <ThemeProvider theme={theme}>
           <div className={classes.root}>
             <CssBaseline />
-            <Header handleDrawerOpen={handleDrawerOpen} open={open} />
-            <Menu handleDrawerClose={handleDrawerClose} open={open} />
-
+            {/* Header */}
+            {loginActions.isLoggedIn() && (
+              <Header handleDrawerOpen={handleDrawerOpen} open={open} />
+            )}
+            {/* Menu */}
+            {loginActions.isLoggedIn() && (
+              <Menu handleDrawerClose={handleDrawerClose} open={open} />
+            )}
+            {/* Content */}
             <Container className={classes.content} maxWidth={false}>
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
@@ -113,7 +118,7 @@ export default function App() {
               <SecuredRoute path="/shop" component={ShopPage} />
               <SecuredRoute path="/report" component={ReportPage} />
               <SecuredRoute path="/transaction" component={TransactionPage} />
-              
+
               <Route
                 exact={true}
                 path="/"
