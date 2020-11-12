@@ -15,6 +15,20 @@ router.post("/transaction", jwt.verify, async (req, res) => {
   }
 });
 
+router.get("/t", async (req, res) => {
+  const result = await Trans.aggregate([
+    {
+      $lookup: {
+        from: "users",
+        localField: "staff_id",
+        foreignField: "_id",
+        as: "staff",
+      },
+    },
+  ]);
+  res.json(result);
+});
+
 router.get("/transaction", async (req, res) => {
   const result = await Trans.aggregate([
     // {
