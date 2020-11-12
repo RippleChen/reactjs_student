@@ -20,12 +20,6 @@ import NewReleasesIcon from "@material-ui/icons/NewReleases";
 import AssignmentReturnIcon from "@material-ui/icons/AssignmentReturn";
 import StarIcon from "@material-ui/icons/Star";
 
-import Slide from "@material-ui/core/Slide";
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -261,34 +255,7 @@ export default (props) => {
         }}
       />
 
-      <Dialog
-        open={openDialog}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle id="alert-dialog-slide-title">
-          {"Use Google's location service?"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Agree
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      {/* {showDialog()} */}
+      {showDialog()}
     </div>
   );
 };
