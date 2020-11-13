@@ -1,6 +1,7 @@
 {
   "name": "mypos",
   "version": "0.1.0",
+  "homepage": "/demo/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
