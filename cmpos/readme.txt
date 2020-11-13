@@ -56,3 +56,4 @@ npx serve -s build -p 99
 brew install nginx
 sudo nginx
 /usr/local/etc/nginx/nginx.conf
+cd /usr/local/Cellar/ nginx/
