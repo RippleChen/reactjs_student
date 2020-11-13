@@ -35,9 +35,9 @@ export default (props) => {
   const dispatch = useDispatch();
   const loginReducer = useSelector(({ loginReducer }) => loginReducer);
 
-  // useEffect(() => {
-  //   loginActions.isLoggedIn() && props.history.push("/stock");
-  // }, []);
+  useEffect(() => {
+    loginActions.isLoggedIn() && props.history.push("/stock");
+  }, []);
 
   const showForm = ({
     values,

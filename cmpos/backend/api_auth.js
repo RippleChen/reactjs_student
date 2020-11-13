@@ -18,7 +18,7 @@ router.post("/login", (req, res) => {
             username: doc.username,
           };
 
-          const token = jwt.sign(payload, "2000000"); // 20 sec
+          const token = jwt.sign(payload, "20000"); // 20 sec
           const refreshToken = randtoken.uid(256);
           refreshTokens[refreshToken] = req.body.username;
 
@@ -74,7 +74,7 @@ router.post("/refresh/token", function (req, res) {
       username: refreshTokens[refreshToken],
       level: "normal",
     };
-    const token = jwt.sign(payload, "2000000"); // unit is millisec
+    const token = jwt.sign(payload, "20000"); // unit is millisec
     res.json({ jwt: token });
   } else {
     console.log("Not found");
