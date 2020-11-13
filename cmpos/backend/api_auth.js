@@ -16,12 +16,15 @@ router.post("/login", (req, res) => {
             username: doc.username,
           };
 
-          const token = jwt.sign(payload, "1000000000");
+          const token = jwt.sign(payload, "20000"); // 20 sec
+          const refreshToken = randtoken.uid(256);
+          refreshTokens[refreshToken] = req.body.username;
 
           // reply ok
           res.json({
             result: "ok",
             token,
+            refreshToken,
             message: "Login successfully",
           });
         } else {
