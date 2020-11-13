@@ -54,3 +54,4 @@ npx crcf -f StockCard
 npx serve -s build -p 99
 
 brew install nginx
+sudo nginx
