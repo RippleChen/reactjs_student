@@ -6,7 +6,6 @@ const jwt = require("./jwt");
 const randtoken = require("rand-token"); // yarn add rand-token
 const refreshTokens = {};
 
-
 router.post("/login", (req, res) => {
   Users.findOne({ username: req.body.username })
     .then(async (doc) => {
@@ -61,6 +60,27 @@ router.post("/register", async (req, res) => {
     res.json({ result: "ok", message: doc });
   } catch (e) {
     res.json({ result: "nok", message: e });
+  }
+});
+
+// Refresh Token
+let count = 1;
+router.post("/refresh/token", function (req, res) {
+  const refreshToken = req.body.refreshToken;
+  console.log("Refresh Token : " + count++);
+
+  if (refreshToken in refreshTokens) {
+    const payload = {
+      username: refreshTokens[refreshToken],
+      level: "normal",
+    };
+    const token = jwt.sign(payload, "20000"); // unit is millisec
+    res.json({ jwt: token });
+  } else {
+    console.log("Not found");
+    return res
+      .status(403)
+      .json({ auth: false, message: "Invalid refresh token" });
   }
 });
 
