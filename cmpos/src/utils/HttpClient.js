@@ -17,7 +17,6 @@ axios.interceptors.request.use(async (config) => {
   const userToken = localStorage.getItem(server.TOKEN_KEY);
   if (userToken) {
     config.headers = { Authorization: `Bearer ${userToken}` };
-    // config.headers = { "x-access-token": userToken };
   }
   config.timeout = 10000; // 10 Second
   return config;
