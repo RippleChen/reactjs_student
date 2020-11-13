@@ -51,11 +51,21 @@ const theme = createMuiTheme({
   },
 });
 
-export default function App() {
+export default function App(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const dispatch = useDispatch();
   useSelector(({ loginReducer }) => loginReducer); // just mention in order to force refresh when login/logout
+
+  useEffect(() => {
+    if (loginActions.isLoggedIn() == false) {
+      //
+    }
+    // restore login state
+    if (localStorage.getItem(server.TOKEN_KEY)) {
+      dispatch(loginActions.reLogin(props.history));
+    }
+  }, []);
 
   const handleDrawerOpen = () => {
     setOpen(true);

@@ -69,3 +69,9 @@ export const isLoggedIn = () => {
     return false;
   }
 };
+
+export const reLogin = () => {
+  return (dispatch) => {
+    dispatch(setLoginStateToSuccess({}));
+  };
+};
