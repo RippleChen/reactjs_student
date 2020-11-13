@@ -67,7 +67,7 @@ router.get("/transaction", async (req, res) => {
         staff: 0,
       },
     },
-  ]);
+  ]).sort({ timestamp: -1 });
   res.json(result);
 });
 
