@@ -74,3 +74,6 @@ cd /usr/local/Cellar/nginx/
     location /demo {
         try_files $uri $uri/ /demo/index.html; 
     }  
+
+
+sudo npm i -g pm2

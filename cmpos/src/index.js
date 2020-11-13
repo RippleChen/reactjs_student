@@ -12,7 +12,7 @@ import logger from "redux-logger";
 
 var middlewares = null;
 
-if (process.env.REACT_APP_IS_PRODUCTION === 1) {
+if (process.env.REACT_APP_IS_PRODUCTION == "1") {
   middlewares = applyMiddleware(thunk);
 } else {
   middlewares = applyMiddleware(thunk, logger);
