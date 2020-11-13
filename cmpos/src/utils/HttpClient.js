@@ -4,29 +4,30 @@ import {
   server,
   apiUrl,
   NOT_CONNECT_NETWORK,
-  NETWORK_CONNECTION_MESSAGE
+  NETWORK_CONNECTION_MESSAGE,
 } from "../constants";
 
 const isAbsoluteURLRegex = /^(?:\w+:)\/\//;
 
-axios.interceptors.request.use(async config => {
+axios.interceptors.request.use(async (config) => {
   if (!isAbsoluteURLRegex.test(config.url)) {
     config.url = join(apiUrl, config.url);
   }
 
   const userToken = localStorage.getItem(server.TOKEN_KEY);
   if (userToken) {
-    config.headers = { "x-access-token": userToken };
+    config.headers = { Authorization: `Bearer ${userToken}` };
+    // config.headers = { "x-access-token": userToken };
   }
   config.timeout = 10000; // 10 Second
   return config;
 });
 
 axios.interceptors.response.use(
-  response => {
+  (response) => {
     return response;
   },
-  async error => {
+  async (error) => {
     debugger;
     console.log(JSON.stringify(error, undefined, 2));
     if (error.response.status == "401") {
@@ -49,7 +50,7 @@ axios.interceptors.response.use(
       alert(JSON.stringify(error));
       return Promise.reject({
         code: NOT_CONNECT_NETWORK,
-        message: NETWORK_CONNECTION_MESSAGE
+        message: NETWORK_CONNECTION_MESSAGE,
       });
     }
     return Promise.reject(error);
