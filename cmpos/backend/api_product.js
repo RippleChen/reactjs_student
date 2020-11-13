@@ -46,7 +46,7 @@ router.post("/product", async (req, res) => {
 });
 
 // Update Product
-router.put("/product", (req, res) => {
+router.put("/product", jwt.verify, (req, res) => {
   try {
     var form = new formidable.IncomingForm();
     form.parse(req, async (err, fields, files) => {

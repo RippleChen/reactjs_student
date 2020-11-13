@@ -16,14 +16,15 @@ module.exports = {
       subject: s,
       audience: a,
       expiresIn: expiresIn, // 30 days validity
-      algorithm: "RS256"
+      algorithm: "RS256",
     };
     return jwt.sign(payload, privateKEY, signOptions);
   },
   verify: (req, res, next) => {
     //next();
-
-    var token = req.headers["x-access-token"];
+    var token = req.headers.authorization
+      ? req.headers.authorization.split(" ")[1]
+      : null;
     if (!token)
       return res
         .status(403)
@@ -34,10 +35,10 @@ module.exports = {
       subject: s,
       audience: a,
       expiresIn: "600",
-      algorithm: ["RS256"]
+      algorithm: ["RS256"],
     };
 
-    jwt.verify(token, publicKEY, verifyOptions, function(err, decoded) {
+    jwt.verify(token, publicKEY, verifyOptions, function (err, decoded) {
       if (err) {
         if (err.name == "TokenExpiredError") {
           return res
@@ -53,5 +54,5 @@ module.exports = {
       req.userLevel = decoded.level;
       next();
     });
-  }
+  },
 };
