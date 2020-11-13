@@ -86,3 +86,4 @@ pm2 restart server
 pm2 [start/stop/restart] all
 pm2 delete [server/0]
 pm2 start 0 --watch 
+pm2 monit
