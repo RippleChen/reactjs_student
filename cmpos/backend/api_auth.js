@@ -3,6 +3,9 @@ const router = express.Router();
 const Users = require("./models/user_schema");
 var bcrypt = require("bcryptjs");
 const jwt = require("./jwt");
+const randtoken = require("rand-token"); // yarn add rand-token
+const refreshTokens = {};
+
 
 router.post("/login", (req, res) => {
   Users.findOne({ username: req.body.username })
