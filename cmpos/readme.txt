@@ -77,3 +77,7 @@ cd /usr/local/Cellar/nginx/
 
 
 sudo npm i -g pm2
+
+
+
+export PATH=$PATH:
