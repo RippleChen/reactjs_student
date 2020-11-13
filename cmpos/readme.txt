@@ -78,6 +78,11 @@ cd /usr/local/Cellar/nginx/
 
 sudo npm i -g pm2
 
-
-
-export PATH=$PATH:
+pm2 start server.js
+pm2 status
+pm2 start server
+pm2 stop server
+pm2 restart server
+pm2 [start/stop/restart] all
+pm2 delete [server/0]
+pm2 start 0 --watch 
